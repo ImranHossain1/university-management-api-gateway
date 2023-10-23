@@ -377,3 +377,27 @@ sample input:
 
 - (GET): /student-enrolled-course-marks/my-marks (Authenticated by Student)
 - (GET): /student-enrolled-course-marks/ (Authenticated by Admin and Super admin)
+
+## Management Department:
+
+- (POST) : /management-departments/ (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "title": "Adminstration"
+}
+```
+
+- (GET): /management-departments/ (OPEN ROUTE)
+- (GET): /management-departments/:id (OPEN ROUTE)
+- (PATCH): /management-departments/:id (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "title": "Adminstration"
+}
+```
+
+- (DELETE) : /management-departments/:id (Authenticated by Admin and Super admin)
