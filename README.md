@@ -242,3 +242,99 @@ sample input:
 
 - (POST): /semester-registrations/enroll-into-course (Authenticated by Student)
 - (POST): /semester-registrations/withdraw-from-course (Authenticated by Student)
+
+## Offered Course Class Schedule:
+
+- (POST) : /offered-course-class-schedules/ (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "startTime": "16:30",
+    "endTime": "17:30",
+    "dayOfWeek": "FRIDAY",
+    "offeredCourseSectionId": "9583d55c-5008-46e6-8ce6-9099562502fa",
+    "semesterRegistrationId": "f3421800-b253-4769-94fa-87a0c88ed604",
+    "roomId": "ffe0136b-50e5-4955-9691-21356bd6cf28",
+    "facultyId": "a9232359-5ee3-4e44-ba95-72475b33b3da"
+}
+```
+
+- (GET): /offered-course-class-schedules/ (OPEN ROUTE)
+- (GET): /offered-course-class-schedules/:id (OPEN ROUTE)
+- (PATCH): /offered-course-class-schedules/:id (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "startTime": "16:30",
+    "endTime": "17:30",
+    "dayOfWeek": "FRIDAY",
+    "offeredCourseSectionId": "9583d55c-5008-46e6-8ce6-9099562502fa",
+    "semesterRegistrationId": "f3421800-b253-4769-94fa-87a0c88ed604",
+    "roomId": "ffe0136b-50e5-4955-9691-21356bd6cf28",
+    "facultyId": "a9232359-5ee3-4e44-ba95-72475b33b3da"
+}
+```
+
+- (DELETE) : /offered-course-class-schedules/:id (Authenticated by Admin and Super admin)
+
+## Offered Course Sections:
+
+- (POST) : /offered-course-sections/ (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "title": "Section E",
+    "maxCapacity": 30,
+    "offeredCourseId": "29e55dda-32f4-40ea-8fe6-cfc268740905",
+    "classSchedules": [
+        {
+            "startTime": "12:30",
+            "endTime": "13:30",
+            "dayOfWeek": "THURSDAY",
+            "roomId": "96e8e986-faaa-41a6-88ce-a2c543b759fa",
+            "facultyId": "a251657f-fc32-467c-9c54-4cc9c49bb3c8"
+        },
+        {
+            "startTime": "12:30",
+            "endTime": "13:30",
+            "dayOfWeek": "TUESDAY",
+            "roomId": "3c80dfb2-537a-45d7-b923-430cdbd2039b",
+            "facultyId": "a251657f-fc32-467c-9c54-4cc9c49bb3c8"
+        }
+    ]
+}
+```
+
+- (GET): /offered-course-sections/ (OPEN ROUTE)
+- (GET): /offered-course-sections/:id (OPEN ROUTE)
+- (PATCH): /offered-course-sections/:id (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "title": "Section E",
+    "maxCapacity": 30,
+    "offeredCourseId": "29e55dda-32f4-40ea-8fe6-cfc268740905",
+    "classSchedules": [
+        {
+            "startTime": "12:30",
+            "endTime": "13:30",
+            "dayOfWeek": "THURSDAY",
+            "roomId": "96e8e986-faaa-41a6-88ce-a2c543b759fa",
+            "facultyId": "a251657f-fc32-467c-9c54-4cc9c49bb3c8"
+        },
+        {
+            "startTime": "12:30",
+            "endTime": "13:30",
+            "dayOfWeek": "TUESDAY",
+            "roomId": "3c80dfb2-537a-45d7-b923-430cdbd2039b",
+            "facultyId": "a251657f-fc32-467c-9c54-4cc9c49bb3c8"
+        }
+    ]
+}
+```
+
+- (DELETE) : /offered-course-sections/:id (Authenticated by Admin and Super admin)
