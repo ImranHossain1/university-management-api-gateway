@@ -338,3 +338,42 @@ sample input:
 ```
 
 - (DELETE) : /offered-course-sections/:id (Authenticated by Admin and Super admin)
+
+## Student Enrolled Course:
+
+- (POST) : /student-enrolled-courses/ (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "academicSemesterId":"679ae7d6-cf90-4e93-aaf9-61198c968097",
+    "studentId":"1b45597f-9e1c-433a-9a94-37e9f41b5ce4",
+    "courseId": "3bc5804f-f6ab-42b9-8d9d-b5e55558f4d0"
+}
+```
+
+- (GET): /student-enrolled-courses/ (OPEN ROUTE)
+- (GET): /student-enrolled-courses/:id (OPEN ROUTE)
+- (PATCH): /student-enrolled-courses/:id (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "academicSemesterId":"679ae7d6-cf90-4e93-aaf9-61198c968097",
+    "studentId":"1b45597f-9e1c-433a-9a94-37e9f41b5ce4",
+    "courseId": "3bc5804f-f6ab-42b9-8d9d-b5e55558f4d0",
+    "grade": "5.0",
+    "point": 0,
+    "totalMarks": 0,
+}
+```
+
+- (DELETE) : /student-enrolled-courses/:id (Authenticated by Admin and Super admin)
+
+## Student Enrolled Course Marks:
+
+- (PATCH) : /student-enrolled-course-marks/update-marks (Authenticated by Faculty)
+- (PATCH) : /student-enrolled-course-marks/update-marks (Authenticated by Faculty)
+
+- (GET): /student-enrolled-course-marks/my-marks (Authenticated by Student)
+- (GET): /student-enrolled-course-marks/ (Authenticated by Admin and Super admin)
