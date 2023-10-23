@@ -134,3 +134,111 @@ sample input:
 ```
 
 - (DELETE) : /rooms/:id (Authenticated by Admin and Super admin)
+
+## Courses:
+
+- (POST) : /courses/ (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "title": "Advance database",
+    "code": "CSE118",
+    "credits": 3,
+    "preRequisiteCourses": [
+        {
+            "courseId": "1e2aba3f-9153-4c5f-a3f4-003ba2be5355"
+        }
+    ]
+}
+```
+
+- (GET): /courses/ (OPEN ROUTE)
+- (GET): /courses/:id (OPEN ROUTE)
+- (PATCH): /courses/:id (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "title": "Advance database",
+    "code": "CSE118",
+    "credits": 3,
+    "preRequisiteCourses": [
+        {
+            "courseId": "1e2aba3f-9153-4c5f-a3f4-003ba2be5355"
+        }
+    ]
+}
+```
+
+- (DELETE) : /courses/:id (Authenticated by Admin and Super admin)
+
+## Offered Course:
+
+- (POST) : /offered-courses/ (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "courseIds": [
+        "3bc5804f-f6ab-42b9-8d9d-b5e55558f4d0"
+    ],
+    "academicDepartmentId": "eb66d33d-a611-47cb-8f10-051ee6534176",
+    "semesterRegistrationId": "f9f7394b-4a68-410d-bde3-df8a9d7bbd17"
+}
+```
+
+- (GET): /offered-courses/ (OPEN ROUTE)
+- (GET): /offered-courses/:id (OPEN ROUTE)
+- (PATCH): /offered-courses/:id (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "courseId": "4e37d95e-9cd1-4139-82e8-a51d6a5a5fab"
+}
+```
+
+- (DELETE) : /offered-courses/:id (Authenticated by Admin and Super admin)
+
+## Semester Registration:
+
+- (POST) : /semester-registrations/ (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "startDate": "2023-10-09T16:27:12.552Z",
+    "endDate": "2023-10-09T16:27:12.552Z",
+    "minCredit": 6,
+    "maxCredit": 18,
+    "academicSemesterId": "4fad990c-b8dd-49c7-b5d1-52da5d71cc6c"
+}
+```
+
+- (GET): /semester-registrations/ (OPEN ROUTE)
+- (GET): /semester-registrations/:id (OPEN ROUTE)
+- (PATCH): /semester-registrations/:id (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+{
+    "startDate": "2023-10-09T16:27:12.552Z",
+    "endDate": "2023-10-09T16:27:12.552Z",
+    "minCredit": 6,
+    "maxCredit": 18,
+    "academicSemesterId": "4fad990c-b8dd-49c7-b5d1-52da5d71cc6c"
+}
+```
+
+- (DELETE) : /semester-registrations/:id (Authenticated by Admin and Super admin)
+- (POST): /semester-registrations/:id/start-new-semester(Authenticated by Admin and Super admin)
+
+- (GET): /semester-registrations/my-registration (Authenticated by Student)
+- (GET): /semester-registrations/my-semester-registration-courses (Authenticated by Student)
+
+- (POST) : /semester-registrations/start-registration (Authenticated by Student)
+- (POST) : /semester-registrations/confirm-registration (Authenticated by Student)
+
+- (POST): /semester-registrations/enroll-into-course (Authenticated by Student)
+- (POST): /semester-registrations/withdraw-from-course (Authenticated by Student)
