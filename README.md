@@ -401,3 +401,162 @@ sample input:
 ```
 
 - (DELETE) : /management-departments/:id (Authenticated by Admin and Super admin)
+
+## USER:
+
+- (POST) : /users/create-student (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+file: image.jpg
+{
+    "password": "fre8992",
+    "student": {
+        "name": {
+            "firstName": "Imran",
+            "lastName": "Khan",
+            "middleName": ""
+        },
+        "dateOfBirth": "14-02-1998",
+        "gender":"male",
+        "bloodGroup": "O+",
+        "email": "imran14@gmail.com",
+        "contactNo": "1545656",
+        "emergencyContactNo": "01765",
+        "presentAddress": "Frankfurt",
+        "permanentAddress": "Frankfurt",
+        "academicFaculty": "92d1d83e-fdc1-4688-ad67-845451c573e4",
+        "academicDepartment": "8a88d6b8-ccfc-4ddd-ad2f-3c303301c20a",
+        "academicSemester": "20bf9090-2986-4b05-b506-27977542a61e",
+        "guardian": {
+            "fatherName": "MD.ABBU",
+            "fatherOccupation": "Retired Teacher",
+            "fatherContactNo": "01600000000",
+            "motherName": "Mrs.Ammu",
+            "motherOccupation": "Housewife",
+            "motherContactNo": "01600000000",
+            "address": "CTG"
+        },
+        "localGuardian": {
+            "name": "Zahid Hasan",
+            "occupation": "Service Holder",
+            "contactNo": "01600000000",
+            "address": "Dhaka"
+        }
+      }
+}
+```
+
+- (POST) : /users/create-faculty (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+file: image.jpg
+{
+    "password": "fre8992",
+    "faculty": {
+        "name": {
+            "firstName": "Imran14",
+            "lastName": "Hossain",
+            "middleName": ""
+        },
+        "dateOfBirth": "24-04-1998",
+        "gender":"male",
+        "bloodGroup": "O+",
+        "email": "imran14@gmail.com",
+        "contactNo": "477799956400",
+        "emergencyContactNo": "017",
+        "presentAddress": "CTG",
+        "permanentAddress": "CTG",
+        "academicFaculty": "92d1d83e-fdc1-4688-ad67-845451c573e4",
+        "academicDepartment": "8a88d6b8-ccfc-4ddd-ad2f-3c303301c20a",
+        "designation": "MSc in HIS"
+      }
+}
+
+```
+
+- (POST) : /users/create-admin (Authenticated by Admin and Super admin)
+
+```json
+sample input:
+file: image.jpg
+{
+    "password": "fre8992",
+    "admin": {
+        "name": {
+            "firstName": "Imran",
+            "lastName": "Hossain",
+            "middleName": ""
+        },
+        "dateOfBirth": "14-02-1994",
+        "gender":"male",
+        "bloodGroup": "O+",
+        "email": "imranadmin@gmail.com",
+        "contactNo": "0157353293",
+        "emergencyContactNo": "017",
+        "presentAddress": "CTG",
+        "permanentAddress": "CTG",
+       "managementDepartment":"65367ebfef50457884c643fc",
+       "designation":"MSC in CSE"
+      }
+}
+
+```
+
+## STUDENT:
+
+- (GET) /students/ (GET ALL Student from Core Service) (Authenticated by All)
+- (GET) /students/:id (GET Single Student from Core Service) (Authenticated by All)
+
+- (GET) /students/my-courses (GET Single Students Courses from Core Service) (Authenticated by Student)
+- (GET) /students/my-academic-infos (GET Single Students Academic Info from Core Service) (Authenticated by Student)
+- (GET) /students/my-course-schedules (GET Single Students Course Schedule from Core Service) (Authenticated by Student)
+
+- (GET) /students/profile/:id (GET Single Student from Auth Service) (Authenticated by All)
+- (PATCH) /students/:id (UPDATE Single Students Course Schedule from Auth Service) (Authenticated by Admin and Super Admin)
+- (DELETE) /students/:id (UPDATE Single Students Course Schedule from Auth Service) (Authenticated by Admin and Super Admin)
+
+## FACULTY:
+
+- (GET) /faculties/ (GET ALL Faculties from Core Service) (Authenticated by All)
+- (GET) /faculties/:id (GET Single Faculty from Core Service) (Authenticated by All)
+
+- (GET) /faculties/my-courses (GET Single faculties Courses from Core Service) (Authenticated by Faculty)
+- (GET) /faculties/my-course-students (GET Single faculties Academic Info from Core Service) (Authenticated by Faculty)
+
+- (GET) /faculties/profile/:id (GET Single Faculty from Auth Service) (Authenticated by All)
+- (PATCH) /faculties/:id (UPDATE Single faculties Course Schedule from Auth Service) (Authenticated by Admin and Super Admin)
+- (DELETE) /faculties/:id (UPDATE Single faculties Course Schedule from Auth Service) (Authenticated by Admin and Super Admin)
+
+## ADMIN:
+
+- (GET) /admins/ (GET ALL Admins from Auth Service) (Authenticated by Admin and Super Admin)
+- (GET) /admins/:id (GET Single Admin from Auth Service) (Authenticated by Admin and Super Admin)
+
+- (PATCH) /faculties/:id (UPDATE Single faculties Course Schedule from Auth Service) (Authenticated by Admin and Super Admin)
+- (DELETE) /faculties/:id (UPDATE Single faculties Course Schedule from Auth Service) (Authenticated by Admin and Super Admin)
+
+## AUthentication:
+
+- (POST) : /auth/login
+
+```json
+sample input:
+{
+    "id":"203802200007",
+    "password":"123456"
+}
+```
+
+- (POST) : /auth/change-password (Authenticated By ALL)
+
+```json
+sample input:
+{
+    "oldPassword": "fre8992",
+    "newPassword": "123456"
+}
+```
+
+- (POST) : /auth/refresh-token (Refresh token using Cookies)

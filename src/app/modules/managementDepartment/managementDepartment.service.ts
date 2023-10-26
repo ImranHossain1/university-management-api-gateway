@@ -3,7 +3,6 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { AuthService } from '../../../shared/axios';
 
 const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
-  console.log(req.body);
   const response: IGenericResponse = await AuthService.post(`/management-departments`, req.body, {
     headers: {
       Authorization: req.headers.authorization
