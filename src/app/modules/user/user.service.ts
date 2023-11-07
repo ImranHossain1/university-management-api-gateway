@@ -37,7 +37,7 @@ const createStudent = async (req: Request) => {
   if (academicSemesterResponse.data && Array.isArray(academicSemesterResponse.data)) {
     req.body.student.academicSemester = academicSemesterResponse.data[0].id;
   }
-  //console.log(req.body);
+
   const response: IGenericResponse = await AuthService.post('/users/create-student', req.body, {
     headers: {
       Authorization: req.headers.authorization

@@ -3,7 +3,7 @@ import { CoreService as HttpService } from '../../../shared/axios';
 import { Request } from 'express';
 
 const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
-  const response: IGenericResponse = await HttpService.post('/academic-department', req.body, {
+  const response: IGenericResponse = await HttpService.post('/academic-departments', req.body, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -11,7 +11,7 @@ const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
   return response;
 };
 const getAllFromDB = async (req: Request): Promise<IGenericResponse> => {
-  const response: IGenericResponse = await HttpService.get('/academic-department', {
+  const response: IGenericResponse = await HttpService.get('/academic-departments', {
     params: req.query,
     headers: {
       Authorization: req.headers.authorization
@@ -21,7 +21,7 @@ const getAllFromDB = async (req: Request): Promise<IGenericResponse> => {
 };
 const getDataById = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  const response: IGenericResponse = await HttpService.get(`/academic-department/${id}`, {
+  const response: IGenericResponse = await HttpService.get(`/academic-departments/${id}`, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -31,7 +31,7 @@ const getDataById = async (req: Request): Promise<IGenericResponse> => {
 const updateOneIntoDB = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
   const response: IGenericResponse = await HttpService.patch(
-    `/academic-department/${id}`,
+    `/academic-departments/${id}`,
     req.body,
     {
       headers: {
@@ -43,7 +43,7 @@ const updateOneIntoDB = async (req: Request): Promise<IGenericResponse> => {
 };
 const deleteOneFromDB = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  const response: IGenericResponse = await HttpService.delete(`/academic-department/${id}`, {
+  const response: IGenericResponse = await HttpService.delete(`/academic-departments/${id}`, {
     headers: {
       Authorization: req.headers.authorization
     }
