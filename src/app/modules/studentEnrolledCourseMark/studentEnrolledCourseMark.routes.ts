@@ -6,16 +6,15 @@ import { StudentEnrolledCourseMarkController } from './studentEnrolledCourseMark
 import { StudentEnrolledCourseMarkValidation } from './studentEnrolledCourseMark.validation';
 
 const router = express.Router();
-
-router.get('/', StudentEnrolledCourseMarkController.getAllFromDB);
-router.get('/my-marks', StudentEnrolledCourseMarkController.getStudentMarks);
-
-router.patch(
+router.post(
   '/update-marks',
   validateRequest(StudentEnrolledCourseMarkValidation.updateStudentMarks),
   auth(ENUM_USER_ROLE.FACULTY),
   StudentEnrolledCourseMarkController.updateMarks
 );
+
+router.get('/', StudentEnrolledCourseMarkController.getAllFromDB);
+router.get('/my-marks', StudentEnrolledCourseMarkController.getStudentMarks);
 
 router.post(
   '/update-course-final-marks',
